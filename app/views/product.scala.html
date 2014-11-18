@@ -1,0 +1,20 @@
+@(products: List[Product])
+
+@main("Product database") {
+<h2>Añade un nuevo producto:</h2>
+
+<form action="@routes.ProductApi.addProduct" method="POST">
+    <input name="id" type="number"/>
+    <input name="name" type="text" placeholder="nombre del producto"/>
+    <input name="price" type="number"/>
+    <input type="submit"/>
+</form>
+
+<h2>Productos existentes:</h2>
+<table>
+    <tr><th>Nombre</th><th>Precio</th></tr>
+    @for(p <- products){
+    <tr><td>@p.name</td><td>@p.price</td></tr>
+    }
+</table>
+}

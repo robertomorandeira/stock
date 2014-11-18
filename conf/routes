@@ -1,0 +1,48 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Admin page
+GET     /admin                      controllers.Application.admin
+
+# Api
+GET     /api/companies              controllers.CompanyApi.getCompanies
+GET     /api/companies/:id          controllers.CompanyApi.getCompany(id: Long)
+POST    /api/companies              controllers.CompanyApi.addCompany
+PUT     /api/companies/:id          controllers.CompanyApi.updateCompany(id: Long)
+DELETE  /api/companies/:id          controllers.CompanyApi.deleteCompany(id: Long)
+
+
+GET     /api/company/:id/orders     controllers.OrderApi.getOrders(id: Long)
+GET     /api/orders                 controllers.OrderApi.getOrders(id: Long ?= 1)
+GET     /api/orders/:id             controllers.OrderApi.getOrder(id: Long)
+POST    /api/orders                 controllers.OrderApi.addOrder
+PUT     /api/orders/:id             controllers.OrderApi.updateOrder(id: Long)
+
+
+GET     /api/products               controllers.ProductApi.getProducts
+GET     /api/products/:id           controllers.ProductApi.getProduct(id: Long)
+POST    /api/products               controllers.ProductApi.addProduct
+PUT     /api/products/:id           controllers.ProductApi.updateProduct(id: Long)
+DELETE  /api/products/:id           controllers.ProductApi.deleteProduct(id: Long)
+
+
+GET     /api/customers              controllers.CustomerApi.getCustomers
+GET     /api/customers/:id          controllers.CustomerApi.getCustomer(id: Long)
+POST    /api/customers              controllers.CustomerApi.addCustomer
+PUT     /api/customers/:id          controllers.CustomerApi.updateCustomer(id: Long)
+DELETE  /api/customers/:id          controllers.CustomerApi.deleteCustomer(id: Long)
+
+
+GET     /api/users                  controllers.UserApi.getUsers
+GET     /api/users/:id              controllers.UserApi.getUser(id: Long)
+POST    /api/users                  controllers.UserApi.addUser
+PUT     /api/users/:id              controllers.UserApi.updateUser(id: Long)
+DELETE  /api/users/:id              controllers.UserApi.deleteUser(id: Long)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
